@@ -1,0 +1,2 @@
+# zeustradingbot
+Python trading bot
