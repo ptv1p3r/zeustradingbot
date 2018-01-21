@@ -16,15 +16,17 @@ class ZeusCandlestick(object):
 
     def tick(self, price):
         self.current = float(price)
-        if self.open is None:
+
+        if self.open is None:   #se ainda nao existe um preco de abertura
             self.open = self.current
-        if (self.high is None) or (self.current > self.high):
+
+        if (self.high is None) or (self.current > self.high):  #se o preco high nao existe ou preco maior que o high
             self.high = self.current
 
-        if (self.low is None) or (self.current < self.low):
+        if (self.low is None) or (self.current < self.low):  #se o preco low nao existe ou preco menor que o low
             self.low = self.current
 
-        if time.time() >= (self.startTime + self.period):
+        if time.time() >= (self.startTime + self.period):  #se o timestamp e maior que i tempo inicial mais o periodo de recolha
             self.close = self.current
             self.priceAverage = (self.high + self.low + self.close) / float(3)
 

@@ -34,13 +34,13 @@ class ZeusStrategy(object):
             if trade.status == "OPEN":
                     openTrades.append(trade)
 
-            if len(openTrades) < self.numTrades:
-                if self.currentPrice < self.indicators.movingAverage(self.prices, 15):
-                    self.trades.append(ZeusTrade(self.currentPrice, stopLoss=.0001))
+        if len(openTrades) < self.numTrades:
+            if self.currentPrice < self.indicators.movingAverage(self.prices, 15):
+                self.trades.append(ZeusTrade(self.currentPrice, stopLoss=.0001))
 
-            for trade in openTrades:
-                if self.currentPrice > self.indicators.movingAverage(self.prices, 15):
-                    trade.close(self.currentPrice)
+        for trade in openTrades:
+            if self.currentPrice > self.indicators.movingAverage(self.prices, 15):
+                trade.close(self.currentPrice)
 
     def updateOpenTrades(self):
         for trade in self.trades:
