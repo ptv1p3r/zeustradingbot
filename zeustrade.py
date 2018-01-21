@@ -8,19 +8,24 @@ class ZeusTrade(object):
         self.entryPrice = currentPrice
         self.exitPrice = ""
         self.output.log("Trade opened")
+
+        # calcula stoploss caso exista
         if stopLoss:
             self.stopLoss = currentPrice - stopLoss
 
+    # fecha posicao de trade
     def close(self, currentPrice):
         self.status = "CLOSED"
         self.exitPrice = currentPrice
         self.output.log("Trade closed")
 
+    # calcula tick de posicao
     def tick(self, currentPrice):
         if self.stopLoss:
             if currentPrice < self.stopLoss:
                 self.close(currentPrice)
 
+    #mostra posicao de trade
     def showTrade(self):
         tradeStatus = "Entry Price: " + str(self.entryPrice) + " Status: " + str(self.status) + " Exit Price: " + str(
             self.exitPrice)

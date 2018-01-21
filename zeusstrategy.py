@@ -22,10 +22,10 @@ class ZeusStrategy(object):
 
         self.indicators.movingAverage(self.prices, 15)
 
-        self.evaluatePositions()
-        self.updateOpenTrades()
+        self.evaluatePositions() # avalia se deve abrir posicoes
+        self.updateOpenTrades() # actualiza ordens abertas
 
-        self.showPositions()
+        self.showPositions() # mostra as ordens de trade
 
     def evaluatePositions(self):
         openTrades = []
