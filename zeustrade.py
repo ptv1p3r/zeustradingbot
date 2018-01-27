@@ -25,7 +25,7 @@ class ZeusTrade(object):
             if currentPrice < self.stopLoss:
                 self.close(currentPrice)
 
-    #mostra posicao de trade
+    # mostra posicao de trade
     def showTrade(self):
         tradeStatus = "Entry Price: " + str(self.entryPrice) + " Status: " + str(self.status) + " Exit Price: " + str(
             self.exitPrice)
