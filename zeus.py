@@ -3,14 +3,15 @@ from zeusstrategy import ZeusStrategy
 from zeuscandlestick import ZeusCandlestick
 import time
 
+
 def main():
 
-    chart = ZeusChart('ETH-EUR', 10) # inicia recolha na gdax
+    chart = ZeusChart('ETH-EUR', 10)  # inicia recolha na gdax
 
-    strategy = ZeusStrategy() # inicia estrategia
+    strategy = ZeusStrategy()  # inicia estrategia
 
     candlesticks = []
-    developingCandlestick = ZeusCandlestick() # inicia candlestick de desenvolvimento
+    developingCandlestick = ZeusCandlestick()  # inicia candlestick de desenvolvimento
 
     while True:
         developingCandlestick.tick(chart.getCurrentPrice())
@@ -20,7 +21,7 @@ def main():
             strategy.tick(developingCandlestick)
             developingCandlestick = ZeusCandlestick()
 
-        time.sleep(int(10)) # espera 10 segundos
+        time.sleep(int(10))  # espera 10 segundos
 
 
 if __name__ == "__main__":
